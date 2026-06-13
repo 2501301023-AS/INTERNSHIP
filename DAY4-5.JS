@@ -177,75 +177,7 @@
 
 //   return el;
 // }
-// Q.39
-// <!DOCTYPE html>
-// <html>
-// <head>
-//   <meta charset="UTF-8">
-//   <title>Image Gallery</title>
-
-//   <style>
-//     body {
-//       font-family: Arial, sans-serif;
-//       text-align: center;
-//     }
-
-//     #preview {
-//       width: 600px;
-//       max-width: 90%;
-//       height: 400px;
-//       object-fit: cover;
-//       border: 2px solid #ccc;
-//       margin: 20px 0;
-//     }
-
-//     .thumbnails {
-//       display: flex;
-//       justify-content: center;
-//       gap: 10px;
-//       flex-wrap: wrap;
-//     }
-
-//     .thumb {
-//       width: 100px;
-//       height: 70px;
-//       object-fit: cover;
-//       cursor: pointer;
-//       border: 2px solid transparent;
-//     }
-
-//     .thumb.active {
-//       border-color: blue;
-//     }
-
-//     button {
-//       padding: 10px 20px;
-//       margin: 10px;
-//       cursor: pointer;
-//     }
-//   </style>
-// </head>
-
-// <body>
-
-//   <h2>Image Gallery</h2>
-
-//   <img id="preview" src="" alt="Preview">
-
-//   <div>
-//     <button id="prev">Prev</button>
-//     <button id="next">Next</button>
-//   </div>
-
-//   <div class="thumbnails">
-//     <img class="thumb" src="https://picsum.photos/id/1015/600/400">
-//     <img class="thumb" src="https://picsum.photos/id/1025/600/400">
-//     <img class="thumb" src="https://picsum.photos/id/1035/600/400">
-//     <img class="thumb" src="https://picsum.photos/id/1045/600/400">
-//   </div>
-
-//   <script src="app.js"></script>
-
+// Q.39 0.html
 // </body>
 // </html>
 // Q.74 clicked
