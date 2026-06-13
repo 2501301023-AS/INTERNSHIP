@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Copy Button</title>
+</head>
+<body>
+  <input type="text" id="copyText" value="Hello World!" />
+  <button id="copyBtn">Copy to clipboard</button>
+
+  <script>
+    const btn = document.getElementById("copyBtn");
+    const textInput = document.getElementById("copyText");
+
+    btn.addEventListener("click", async () => {
+      const text = textInput.value;
+
+      try {
+        
+        await navigator.clipboard.writeText(text);
+        showCopiedState();
+      } catch (err) {
+        
+        fallbackCopy(text);
+      }
+    });
+
+    function showCopiedState() {
+      let count = 3;
+      btn.disabled = true;
+      btn.textContent = `Copied! ${count}`;
+
+      const interval = setInterval(() => {
+        count--;
+        if (count > 0) {
+          btn.textContent = `Copied! ${count}`;
+        }
+      }, 1000);
+
+      setTimeout(() => {
+        clearInterval(interval);
+        btn.disabled = false;
+        btn.textContent = "Copy to clipboard";
+      }, 2000);
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      try {
+        const success = document.execCommand("copy");
+
+        if (success) {
+          showCopiedState();
+        } else {
+          btn.textContent = "Copy failed";
+          setTimeout(() => {
+            btn.textContent = "Copy to clipboard";
+          }, 2000);
+        }
+      } catch {
+        btn.textContent = "Copy not allowed";
+        setTimeout(() => {
+          btn.textContent = "Copy to clipboard";
+        }, 2000);
+      }
+
+      document.body.removeChild(textarea);
+    }
+  </script>
+</body>
+</html>
